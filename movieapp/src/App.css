@@ -19,18 +19,32 @@
   box-sizing: border-box;
 }
 
+main {
+  display: flex;
+  width: 100vw;
+}
+
+aside {
+  height: 100vh;
+}
+
 /* navBar */
+/* .contentWrapper {
+
+} */
 .nav--container {
   display: flex;
   justify-content: space-between;
   background: var(--accent);
   align-items: center;
   padding: 10px;
+
 }
 
 .icon {
  color: var(--primary);
  font-size: 20px;
+ cursor: pointer;
 }
 
 .nav--container-form {
@@ -51,3 +65,77 @@
   color: var(--primary);
 }
 /* navBar */
+
+/* sidebar */
+.sidebar_container {
+  padding: 11px 0 0 0;
+  background-color: var(--accent);
+  color: var(--primary);
+  min-height: 100%;
+}
+.genre {
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 15px;
+  
+}
+
+.genreList--container {
+
+  display: flex;
+  flex-direction: column;
+}
+
+.genreList {
+  cursor: pointer;
+  padding: 4px 0 4px 15px;
+}
+
+.genreList:hover {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+/* sidebar */
+
+/* aanimes */
+.animes--section {
+  padding: 20px;
+  height: 100vh;
+}
+
+.animes--container {
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 100vh;
+}
+
+.animes--container img {
+  width: 150px;
+  height: 250px;
+}
+
+/* split */
+.split {
+  display: flex;
+}
+.gutter {
+  background-color: #eee;
+
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+}
+
+.gutter.gutter-horizontal:hover {
+  cursor: col-resize;
+}
+
+.split {
+  display: flex;
+}
