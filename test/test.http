@@ -1,0 +1,1 @@
+GET  https://online-movie-database.p.rapidapi.com/title/v2/get-popular-movies-by-genre?genre=adventure&limit=100
