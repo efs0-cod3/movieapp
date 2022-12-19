@@ -19,32 +19,46 @@
   box-sizing: border-box;
 }
 
-main {
-  display: flex;
-  width: 100vw;
-}
-
-aside {
+body {
   height: 100vh;
 }
 
-/* navBar */
-/* .contentWrapper {
+.App {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-areas: 
+  "aside navbar"
+  "aside anime";
+}
 
-} */
+
+
+/* navBar */
+.nav--container{
+  grid-area: navbar;
+}
+
+.animes--section {
+  grid-area: anime;
+}
+
 .nav--container {
   display: flex;
   justify-content: space-between;
   background: var(--accent);
   align-items: center;
-  padding: 10px;
-
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .icon {
- color: var(--primary);
- font-size: 20px;
- cursor: pointer;
+  color: var(--primary);
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .nav--container-form {
@@ -72,16 +86,19 @@ aside {
   background-color: var(--accent);
   color: var(--primary);
   min-height: 100%;
+  position: fixed;
+  top: 0;
+  width: 20%;
+  height: 100vh;
+  grid-area: aside;
 }
 .genre {
   font-size: 20px;
   font-weight: bold;
   padding-left: 15px;
-  
 }
 
 .genreList--container {
-
   display: flex;
   flex-direction: column;
 }
@@ -101,24 +118,54 @@ aside {
 /* aanimes */
 .animes--section {
   padding: 20px;
-  height: 100vh;
 }
 
 .animes--container {
-  overflow: scroll;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 0;
+  padding: 15px 10px;
+  justify-items: center;
 }
 
-.animes--container img {
+
+.anime--info-container {
+  position: relative;
+  width: 180px;
+  background: var(--primary);
+  border-radius: 8px;
+  height: 265px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  cursor: pointer;
+  transition: all ease-in-out .4s;
+}
+
+.anime--info-container:title
+
+.anime--info-container:hover {
+  transform: scale(1.1);
+  transition: all ease-in-out .4s;
+}
+
+/* .animes--container img {
   width: 150px;
   height: 250px;
+} */
+
+.anime--title {
+  text-align: center;
+  color: var(--primary);
+  font-weight: bold;
+  padding: 5px 2px;
+  background: var(--accent);
+  border-radius: 8px 8px 0 0;
+
 }
 
 /* split */
-.split {
+/* .split {
   display: flex;
 }
 .gutter {
@@ -129,7 +176,7 @@ aside {
 }
 
 .gutter.gutter-horizontal {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
 }
 
 .gutter.gutter-horizontal:hover {
@@ -138,4 +185,6 @@ aside {
 
 .split {
   display: flex;
-}
+  min-height: 100vh;
+} */
+/* split */

@@ -4,13 +4,13 @@ import './App.css'
 import Navbar from './components/global/Navbar'
 import Sidebar from './components/global/Sidebar'
 import Animes from './components/global/Animes'
-import Split from 'react-split'
+
 
 
 function App() {
 
 const [genres, getGenres] = useState([])
-const [searchByGen, setSearchByGen]= useState('')
+const [searchByGen, setSearchByGen]= useState('Action')
 const [animes, setAnimes]= useState([])
 
 function handleEv(e){
@@ -42,7 +42,7 @@ function handleEv(e){
       }
     };
     
-    fetch(`https://anime-db.p.rapidapi.com/anime?page=1&size=10&&genres=${searchByGen}&sortBy=ranking&sortOrder=asc`, options)
+    fetch(`https://anime-db.p.rapidapi.com/anime?page=1&size=16&&genres=${searchByGen}&sortBy=ranking&sortOrder=asc`, options)
       .then(response => response.json())
       .then(response => setAnimes(response.data))
       .catch(err => console.error(err)); 
@@ -52,23 +52,15 @@ function handleEv(e){
 
   return (
       <main className="App">
-    <Split
-    sizes={[25, 75]}
-    direction="horizontal"
-    className="split"
-    >
-      
     <Sidebar 
       genres={genres}
       handleEvent={(e) => handleEv(e)}
       />
-    <div className='contentWrapper'>
+
       <Navbar />
       <Animes 
-        animes={animes}
-      />
-    </div>
-    </Split>
+        animes={animes} />
+
     </main>
   )
 }
