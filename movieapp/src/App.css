@@ -25,11 +25,11 @@ body {
 
 .App {
   display: grid;
-  width: 100vw;
-  height: 100vh;
   grid-template-areas: 
-  "aside navbar"
-  "aside anime";
+  "side main"
+  "side main";
+  grid-template-columns: .2fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 
@@ -37,10 +37,6 @@ body {
 /* navBar */
 .nav--container{
   grid-area: navbar;
-}
-
-.animes--section {
-  grid-area: anime;
 }
 
 .nav--container {
@@ -51,8 +47,6 @@ body {
   padding: 10px 20px;
   position: sticky;
   top: 0;
-  width: 100%;
-  z-index: 1;
 }
 
 .icon {
@@ -85,14 +79,11 @@ body {
   padding: 11px 0 0 0;
   background-color: var(--accent);
   color: var(--primary);
-  min-height: 100%;
-  position: fixed;
-  top: 0;
-  width: 20%;
   height: 100vh;
-  grid-area: aside;
 }
+
 .genre {
+  position: fixed;
   font-size: 20px;
   font-weight: bold;
   padding-left: 15px;
@@ -101,6 +92,8 @@ body {
 .genreList--container {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 50px;
 }
 
 .genreList {
@@ -117,42 +110,35 @@ body {
 
 /* aanimes */
 .animes--section {
-  padding: 20px;
+padding: 20px;
+
+height: 93vh;
+overflow: scroll;
 }
 
 .animes--container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px 0;
-  padding: 15px 10px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding:0 18px;
 }
 
 
 .anime--info-container {
-  position: relative;
   width: 180px;
   background: var(--primary);
   border-radius: 8px;
   height: 265px;
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 0;
   cursor: pointer;
   transition: all ease-in-out .4s;
 }
-
-.anime--info-container:title
 
 .anime--info-container:hover {
   transform: scale(1.1);
   transition: all ease-in-out .4s;
 }
-
-/* .animes--container img {
-  width: 150px;
-  height: 250px;
-} */
 
 .anime--title {
   text-align: center;
@@ -161,30 +147,14 @@ body {
   padding: 5px 2px;
   background: var(--accent);
   border-radius: 8px 8px 0 0;
-
 }
 
-/* split */
-/* .split {
-  display: flex;
-}
-.gutter {
-  background-color: #eee;
-
-  background-repeat: no-repeat;
-  background-position: 50%;
+/* main */
+.main{
+  grid-area: main;
+  width: 100%;
 }
 
-.gutter.gutter-horizontal {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
+.side {
+  grid-area: side;
 }
-
-.gutter.gutter-horizontal:hover {
-  cursor: col-resize;
-}
-
-.split {
-  display: flex;
-  min-height: 100vh;
-} */
-/* split */

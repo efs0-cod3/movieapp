@@ -4,8 +4,14 @@ import {nanoid} from 'nanoid'
 export default function Sidebar(props) {
 
     const genresElements = props.genres.map(gen => 
-        // console.log(gen)
-        gen.map(gen => (<li className="genreList" key={nanoid()} onClick={props.handleEvent}>{gen._id}</li>))       
+        gen.map(gen => (
+        <li 
+            className="genreList" 
+            key={nanoid()} 
+            onClick={props.handleEvent}
+        >
+            {gen._id}
+        </li>))       
     )
     
     return (
